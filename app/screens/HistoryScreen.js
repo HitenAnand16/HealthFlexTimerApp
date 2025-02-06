@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HistoryScreen = () => {
   const [completedTimers, setCompletedTimers] = useState([]);
-  const navigation = useNavigation(); // Hook to manage navigation
+  const navigation = useNavigation(); 
 
   useEffect(() => {
     loadCompletedTimers();
@@ -20,7 +20,7 @@ const HistoryScreen = () => {
   };
 
   const handleGoBack = () => {
-    navigation.goBack(); // Go back to the previous screen
+    navigation.goBack(); 
   };
 
   return (

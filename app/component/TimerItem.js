@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Alert, Animated, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ProgressBar } from 'react-native-paper';
-import * as Haptics from 'expo-haptics'; // Import Expo Haptics
+import * as Haptics from 'expo-haptics'; 
 
 const TimerItem = ({ timer, onDelete }) => {
   const [remainingTime, setRemainingTime] = useState(timer.remaining);
@@ -34,8 +34,8 @@ const TimerItem = ({ timer, onDelete }) => {
     } else if (backgroundColor === 'yellow' || backgroundColor === 'red') {
       return 'black';
     }
-    return 'black'; // Default color if no background color
-  };
+    return 'black'; 
+    };
 
   const startBlinking = () => {
     const blinkIntervalId = setInterval(() => {

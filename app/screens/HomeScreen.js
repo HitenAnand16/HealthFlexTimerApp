@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, TouchableOpacity, Modal, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import TimerItem from '../component/TimerItem';  // Assuming you have TimerItem component
+import TimerItem from '../component/TimerItem';  
 import { Picker } from '@react-native-picker/picker'; 
 import { MaterialIcons } from 'react-native-vector-icons';
 
@@ -29,7 +29,7 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const addTimer = () => {
-    const totalDuration = hours * 3600 + minutes * 60 + seconds; // convert time to seconds
+    const totalDuration = hours * 3600 + minutes * 60 + seconds; 
 
     if (name && totalDuration > 0 && category) {
       const newTimer = { 
@@ -38,16 +38,16 @@ const HomeScreen = ({ navigation }) => {
         duration: totalDuration, 
         remaining: totalDuration, 
         category,
-        status: 'Running',  // Set status to 'Running' immediately
-        running: true  // Mark this timer as running
+        status: 'Running', 
+        running: true 
       };
-      saveTimers([newTimer]); // Save only the running timer
-      setName(''); // Reset input fields
+      saveTimers([newTimer]); 
+      setName(''); 
       setHours(0);
       setMinutes(0);
       setSeconds(0);
       setCategory('');
-      setModalVisible(false); // Close modal
+      setModalVisible(false); 
     }
   };
 
@@ -59,7 +59,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, paddingTop: "10%", backgroundColor: "white" }}>
       {timers.length > 0 ? (
-        <TimerItem timer={timers[0]} onDelete={deleteTimer} />  // Only show the first (running) timer
+        <TimerItem timer={timers[0]} onDelete={deleteTimer} />  
       ) : (
         <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 50 }}>
           <Text style={{ fontSize: 18, color: 'gray' }}>Press + to add a timer</Text>
@@ -100,7 +100,6 @@ const HomeScreen = ({ navigation }) => {
         <MaterialIcons name="add" size={30} color="white" />
       </TouchableOpacity>
 
-      {/* Modal for Timer Input */}
       <Modal
         visible={modalVisible}
         animationType="slide"
